@@ -16,7 +16,7 @@ public class Anagrams {
         // Generate and print anagrams
         char[] chars = word.toCharArray();
         printCount = n;
-        generateAnagrams(chars, chars.length);
+        generateAllAnagrams(chars, chars.length);
     }
 
     private static void generateAnagrams(char[] chars, int n) {
@@ -54,6 +54,20 @@ public class Anagrams {
         chars[i] = chars[j];
         chars[j] = temp;
     }
+
+    public static void generateAllAnagrams(char[] chars, int n) {
+        printCount = fact(chars.length);
+        generateAnagrams(chars, n);
+    }
+
+    public static int fact(int n) {
+        int fact = 1;
+        for (int i = 2; i <= n; i++) {
+            fact = fact * i;
+        }
+        return fact;
+    }
+
 }
 
 
